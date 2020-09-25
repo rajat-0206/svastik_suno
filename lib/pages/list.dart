@@ -56,10 +56,7 @@ class _ListPageState extends State<ListPage> {
                         image: "assets/logo.jpg",
                         size: 150,
                         borderWidth: 5,
-                        onTap: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (_) => DetailsPage()));
-                        },
+                        onTap: () {},
                       ),
                       CustomButton(
                         child: Icon(
@@ -81,7 +78,11 @@ class _ListPageState extends State<ListPage> {
                         return GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (_) => DetailsPage()));
+                                builder: (_) => DetailsPage(
+                                      songname: _list[index].title,
+                                      artist: _list[index].album,
+                                      played: _playId == 0 ? false : true,
+                                    )));
                           },
                           child: AnimatedContainer(
                               duration: Duration(milliseconds: 500),
